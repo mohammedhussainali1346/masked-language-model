@@ -4,7 +4,7 @@ numpy
 scikit-learn
 tensorboard
 matplotlib
-streamlit
+streamlit==1.35.0
 scikeras
 nltk
 gdown
