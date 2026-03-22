@@ -1,3 +1,5 @@
+import os
+import gdown
 import streamlit as st
 import numpy as np
 import pickle
@@ -66,9 +68,18 @@ body {
 
 @st.cache_resource
 def load_resources():
-    model = load_model("bigru_mask_model.h5")
+    model_path = "bigru_mask_model.h5"
+
+    if not os.path.exists(model_path):
+        file_id = "1rKqfaYB8lu53DBJudFnz2x9ldZUIbPo6"
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, model_path, quiet=False)
+
+    model = load_model(model_path)
+
     with open("tokenizer.pkl", "rb") as f:
         tokenizer = pickle.load(f)
+
     return model, tokenizer
 
 model, tokenizer = load_resources()
