@@ -110,7 +110,7 @@ with col1:
     user_input = st.text_area(
         "Enter sentence with the word 'mask':",
         height=120,
-        placeholder="Example: I am preparing to mask for the interview"
+        placeholder="Example: Hey, How mask you?"
     )
 
     predict_btn = st.button("🚀 Generate Predictions")
